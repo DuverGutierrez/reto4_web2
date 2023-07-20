@@ -8,7 +8,7 @@ import java.util.Map;
 @Document(collection = "orders")
 public class Order {
     @Id
-    private String id;
+    private Integer id;
     private String registerDay;
     private String status;
     private SalesMan salesMan;
