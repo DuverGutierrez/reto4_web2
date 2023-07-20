@@ -18,7 +18,7 @@ public class Order {
     public Order() {
     }
 
-    public Order(String id, String registerDay, String status, SalesMan salesMan,
+    public Order(Integer id, String registerDay, String status, SalesMan salesMan,
                  Map<String, Product> products, Map<String, Integer> quantities) {
         this.id = id;
         this.registerDay = registerDay;
@@ -30,11 +30,11 @@ public class Order {
 
     // Getters and setters
 
-    public String getId() {
+    public Integer getId() {
         return id;
     }
 
-    public void setId(String id) {
+    public void setId(Integer id) {
         this.id = id;
     }
 
