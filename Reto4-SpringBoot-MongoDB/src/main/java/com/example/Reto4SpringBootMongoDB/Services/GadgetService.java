@@ -1,5 +1,6 @@
 package com.example.Reto4SpringBootMongoDB.Services;
 import com.example.Reto4SpringBootMongoDB.Entity.Gadget;
+import com.example.Reto4SpringBootMongoDB.Entity.Order;
 import com.example.Reto4SpringBootMongoDB.Repository.GadgetRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -23,4 +24,13 @@ public class GadgetService {
     public List<Gadget> getAllGadgets() {
         return gadgetRepository.findAll();
     }
+
+    public List<Gadget> getGadgetByPrice(int priceGadget) {
+        return gadgetRepository.findByPriceLessThanEqual(priceGadget);
+    }
+
+    public List<Gadget> getGadgetByDescription(String descripcion) {
+        return gadgetRepository.findByDescriptionContains(descripcion);
+    }
+
 }

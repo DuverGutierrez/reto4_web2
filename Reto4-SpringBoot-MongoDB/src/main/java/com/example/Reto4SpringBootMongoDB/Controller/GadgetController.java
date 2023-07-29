@@ -1,6 +1,7 @@
 package com.example.Reto4SpringBootMongoDB.Controller;
 
 import com.example.Reto4SpringBootMongoDB.Entity.Gadget;
+import com.example.Reto4SpringBootMongoDB.Entity.Order;
 import com.example.Reto4SpringBootMongoDB.Services.GadgetService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -28,6 +29,18 @@ public class GadgetController {
     @GetMapping("/all")
     public ResponseEntity<List<Gadget>> getAllGadgets() {
         List<Gadget> gadgets = gadgetService.getAllGadgets();
+        return new ResponseEntity<>(gadgets, HttpStatus.OK);
+    }
+
+    @GetMapping("/price/{priceGadget}")
+    public ResponseEntity<List<Gadget>> getGadgetsByPrice(@PathVariable int priceGadget) {
+        List<Gadget> gadgets = gadgetService.getGadgetByPrice(priceGadget);
+        return new ResponseEntity<>(gadgets, HttpStatus.OK);
+    }
+
+    @GetMapping("/description/{descripcion}")
+    public ResponseEntity<List<Gadget>> getGadgetsByDescription(@PathVariable String descripcion) {
+        List<Gadget> gadgets = gadgetService.getGadgetByDescription(descripcion);
         return new ResponseEntity<>(gadgets, HttpStatus.OK);
     }
 }

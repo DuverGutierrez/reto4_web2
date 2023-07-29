@@ -1,5 +1,6 @@
 package com.example.Reto4SpringBootMongoDB.Controller;
 
+import com.example.Reto4SpringBootMongoDB.Entity.Gadget;
 import com.example.Reto4SpringBootMongoDB.Entity.User;
 import com.example.Reto4SpringBootMongoDB.Services.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -40,5 +41,11 @@ public class UserController {
         } else {
             return new ResponseEntity<>(HttpStatus.NOT_FOUND);
         }
+    }
+
+    @GetMapping("/birthday/{month}")
+    public ResponseEntity<List<User>> getGadgetsByDescription(@PathVariable String month) {
+        List<User> users = userService.getUsersByMonthBirth(month);
+        return new ResponseEntity<>(users, HttpStatus.OK);
     }
 }
